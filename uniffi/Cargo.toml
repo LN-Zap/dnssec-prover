@@ -10,10 +10,10 @@ build = "build.rs"
 
 [dependencies]
 dnssec-prover = { path = "../", default-features = false, features = ["validation"] }
-uniffi = { version = "0.27", default-features = false }
+uniffi = { version = "0.25", features = [ "cli" ] }
 
 [build-dependencies]
-uniffi = { version = "0.27", features = [ "build" ] }
+uniffi = { version = "0.25", features = [ "build", "cli" ] }
 
 [[bin]]
 name = "uniffi-bindgen"
