@@ -29,7 +29,10 @@ jobs:
     - name: Create Release Asset
       run: make release-uniffi-bindings VERSION=${{ github.ref_name }}
 
+    - name: Set ARCH environment variable
+      run: echo "ARCH=$(uname -m)" >> $GITHUB_ENV
+
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v2
       with:
-        files: ./dnssec-prover-${{ github.ref_name }}-${{ runner.arch }}.tar.gz
+        files: ./dnssec-prover-${{ github.ref_name }}-${{ env.ARCH }}.tar.gz
