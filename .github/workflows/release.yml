@@ -27,7 +27,7 @@ jobs:
         devenv shell -- bash -c "make build-uniffi-bindings"
 
     - name: Create Release Asset
-      run: make release-uniffi-bindings
+      run: make release-uniffi-bindings VERSION=${{ github.ref_name }}
 
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v2
