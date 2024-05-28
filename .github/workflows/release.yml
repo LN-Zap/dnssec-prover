@@ -24,21 +24,10 @@ jobs:
 
     - name: Build bindings
       run: |
-        devenv shell -- bash -c "cd uniffi && uniffi-bindgen-cs --config ./uniffi.toml ./src/interface.udl && cargo build --release"
+        devenv shell -- bash -c "make build-c-bindings"
 
-    - name: Archive production artifacts
-      run: |
-        mkdir -p dist/dnssec-prover
-        cp uniffi/src/dnssec_prover.cs dist/dnssec-prover
-        if [[ "${{ runner.os }}" == "macOS" ]]; then
-          cp uniffi/target/release/libdnssec_prover_uniffi.dylib dist/dnssec-prover
-        elif [[ "${{ runner.os }}" == "Windows" ]]; then
-          cp uniffi/target/release/libdnssec_prover_uniffi.dll dist/dnssec-prover
-        else
-          cp uniffi/target/release/libdnssec_prover_uniffi.so dist/dnssec-prover
-        fi
-        cd dist
-        tar czvf ../dnssec-prover-${{ github.ref_name }}-${{ runner.arch }}.tar.gz dnssec-prover
+    - name: Create Release Asset
+      run: make release-c-bindings
 
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v2
