@@ -35,4 +35,4 @@ jobs:
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v2
       with:
-        files: ./dnssec-prover-${{ github.ref_name }}-${{ env.ARCH }}.tar.gz
+        files: ./dist/dnssec-prover-${{ github.ref_name }}-${{ env.ARCH }}.tar.gz
