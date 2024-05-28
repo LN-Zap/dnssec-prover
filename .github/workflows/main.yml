@@ -23,4 +23,4 @@ jobs:
 
     - name: Build bindings
       run: |
-        devenv shell -- bash -c "cd uniffi && uniffi-bindgen-cs --config ./uniffi.toml ./src/interface.udl && cargo build --release"
+        devenv shell -- bash -c "make build-uniffi-bindings"

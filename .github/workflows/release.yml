@@ -24,10 +24,10 @@ jobs:
 
     - name: Build bindings
       run: |
-        devenv shell -- bash -c "make build-c-bindings"
+        devenv shell -- bash -c "make build-uniffi-bindings"
 
     - name: Create Release Asset
-      run: make release-c-bindings
+      run: make release-uniffi-bindings
 
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v2

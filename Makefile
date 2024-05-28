@@ -1,11 +1,11 @@
-.PHONY: build-c-bindings release-c-bindings
+.PHONY: build-uniffi-bindings release-uniffi-bindings
 
-build-c-bindings:
+build-uniffi-bindings:
 	cd uniffi \
 	&& uniffi-bindgen-cs --config ./uniffi.toml ./src/interface.udl \
 	&& cargo build --release
 
-release-c-bindings:
+release-uniffi-bindings:
 	mkdir -p dist/dnssec-prover
 	cp uniffi/src/dnssec_prover.cs dist/dnssec-prover
 	if [ "$(shell uname)" = "Darwin" ]; then \
