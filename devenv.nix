@@ -1,8 +1,5 @@
 { pkgs ? import <nixpkgs>, lib, ... }:
 
-
-
-
 # let
 #   uniffi-bindgen-cs = pkgs.rustPlatform.buildRustPackage rec {
 #     name = "uniffi-bindgen-cs-${version}";
@@ -37,7 +34,7 @@
   ]);
 
   languages = {
-    rust = let 
+    rust = let
       rustVersion = pkgs.rust-bin.stable.latest.default;
     in {
       enable = true;
