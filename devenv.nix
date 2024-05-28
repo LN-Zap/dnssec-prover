@@ -23,7 +23,7 @@
 #   };
 # in
 {
-  name = "dnssec_prover";
+  name = "dnssec-prover";
 
   packages = [
     pkgs.bash
