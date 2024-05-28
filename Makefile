@@ -5,7 +5,7 @@ build-uniffi-bindings:
 	&& uniffi-bindgen-cs --config ./uniffi.toml ./src/interface.udl \
 	&& cargo build --release
 
-release-uniffi-bindings:
+release-uniffi-bindings: build-uniffi-bindings
 	mkdir -p dist/dnssec-prover
 	cp uniffi/src/dnssec_prover.cs dist/dnssec-prover
 	if [ "$(shell uname)" = "Darwin" ]; then \

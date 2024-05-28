@@ -22,12 +22,8 @@ jobs:
     - name: Install devenv.sh
       run: nix profile install nixpkgs#devenv
 
-    - name: Build bindings
-      run: |
-        devenv shell -- bash -c "make build-uniffi-bindings"
-
-    - name: Create Release Asset
-      run: make release-uniffi-bindings VERSION=${{ github.ref_name }}
+    - name: Create binding distribution
+      run: devenv shell -- bash -c "make release-uniffi-bindings VERSION=${{ github.ref_name }}"
 
     - name: Set ARCH environment variable
       run: echo "ARCH=$(uname -m)" >> $GITHUB_ENV
