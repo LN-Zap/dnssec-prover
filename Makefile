@@ -8,9 +8,9 @@ build-c-bindings:
 release-c-bindings:
 	mkdir -p dist/dnssec-prover
 	cp uniffi/src/dnssec_prover.cs dist/dnssec-prover
-	if [[ "$(shell uname)" == "Darwin" ]]; then \
+	if [ "$(shell uname)" = "Darwin" ]; then \
 		cp uniffi/target/release/libdnssec_prover_uniffi.dylib dist/dnssec-prover; \
-	elif [[ "$(shell uname -o)" == "Msys" ]]; then \
+	elif [ "$(shell uname -o)" = "Msys" ]; then \
 		cp uniffi/target/release/libdnssec_prover_uniffi.dll dist/dnssec-prover; \
 	else \
 		cp uniffi/target/release/libdnssec_prover_uniffi.so dist/dnssec-prover; \
