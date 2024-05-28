@@ -1,0 +1,9 @@
+inputs:
+  nixpkgs:
+    url: github:cachix/devenv-nixpkgs/rolling
+  mk-shell-bin:
+    url: github:rrbutani/nix-mk-shell-bin
+  rust-overlay:
+    url: github:oxalica/rust-overlay
+    overlays:
+      - default
