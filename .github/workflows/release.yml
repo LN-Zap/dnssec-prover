@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest] # Windows is not supported (not working with devenv/nix setup)
+        os: [ubuntu-latest, macos-15] # Windows is not supported (not working with devenv/nix setup)
       fail-fast: false
 
     steps:
